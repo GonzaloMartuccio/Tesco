@@ -1,10 +1,12 @@
 let totalCompra = 0
 let claseYerba = parseInt(
     prompt(
-        'Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.Rei Verde - 3.Sara - 4.Playadito'
+        'Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'
         )
 
 ) 
+
+const TipoMate = ["Madera", "Plastico", "Vidrio"]
 
 let continuarCompra = true
 let decision
@@ -26,7 +28,7 @@ while (continuarCompra === true) {
     
  decision = parseInt(prompt('Quieres seguir agregando productos? 1.Si - 2.No'))
  if (decision===1){
-    claseYerba = parseInt(prompt('Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.Rei Verde - 3.Sara - 4.Playadito'))
+    claseYerba = parseInt(prompt('Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'))
  } else if (decision===2){
     continuarCompra = false
 
@@ -64,3 +66,13 @@ function calcularPrecioConImpuestos (valor){
 
 let valorFinalConImpuesto = calcularPrecioConImpuestos(valorDescuento)
 alert ('Total de compra a pagar es: '+valorFinalConImpuesto)
+ 
+const a = [claseYerba, calcularPrecioConDescuento, calcularPrecioConImpuestos ]
+const b = [1, true, "Hi"]
+
+console.log(a)
+console.log(a[2])
+
+console.log(TipoMate)
+TipoMate.push("Aluminio")
+
