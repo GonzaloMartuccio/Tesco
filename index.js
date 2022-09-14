@@ -1,78 +1,47 @@
-let totalCompra = 0
-let claseYerba = parseInt(
-    prompt(
-        'Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'
-        )
-
-) 
-
-const TipoMate = ["Madera", "Plastico", "Vidrio"]
-
-let continuarCompra = true
-let decision
-
-while (continuarCompra === true) {
- if(claseYerba === 1){
-        totalCompra = totalCompra + 150
- } else if (claseYerba === 2){
-        totalCompra = totalCompra + 120
- } else if (claseYerba === 3){
-        totalCompra = totalCompra + 100
- } else if (claseYerba === 4){
-        totalCompra = totalCompra + 95
- } else {
-    claseYerba = parseInt(prompt('Ingresa un producto existente:'))
-    continue
- } 
+ const productos = []
+ const carritos =  []
  
-    
- decision = parseInt(prompt('Quieres seguir agregando productos? 1.Si - 2.No'))
- if (decision===1){
-    claseYerba = parseInt(prompt('Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'))
- } else if (decision===2){
-    continuarCompra = false
+ class Producto{
+    constructor(id, nombre, precio, img, descripcion = 'Yerba sin palo' ){
+        this.id = id;
+        this.nombre = 'Yerba Canarias';  
+        this.precio = 1200; 
+        this.img = img; 
+        this.descripcion = 'Yerba sin palo'; 
 
- }
+    }
 
+    DesplegarProductos(){
+        const card = `
+            <div class="card">
+                <h4>$(this.nombre)</h4>
+                <div>
+                    <img class="imgproducto" src= $(this.img) alt="foto del producto">
+                </div>
+                <div>
+                    <p>$(this.precio)/p> 
+                </div>
+                <div class="btn-container">
+                    <button id=$(this.id) class="botonagregar">Agregar al carrito</button>
+                </div>
+
+            </div>
+                    
+           
+        const container = document.getElementById('container')
+        container.innerHTML += card 
+        `
+    }
 }
 
-alert ('Compra total sin descuentos ni impuestos es: '+totalCompra)
+ let prod1 = new Producto('001', 'Yerba Canarias', 1500, './multimedia/yerba-canarias.jpg')
+ let prod2 = new Producto('002', 'Yerba Rei Verde', 1300, './multimedia/reiverde-yerba.jpg')
+ let prod3 = new Producto('003', 'Yerba Playadito', 1200, './multimedia/playadito-yerba.jpg')
+ let prod4 = new Producto('004', 'Yerba Sara', 1000, './multimedia/sara-roja.png')
 
-function calcularPrecioConDescuento (valor){
-let descuento = 0 
-if (valor<=300){
-    descuento = 10
-} else if (valor>300 && valor<=400){
-    descuento = 20
-} else if (valor>500 && valor<=600){
-    descuento = 25
-} else { 
-    descuento = 30
-}
+productos.push(prod1, prod2, prod3, prod4)
+console.log(productos)
 
-let valorDescuento = valor *(descuento/100)
-valor = valor - valorDescuento
-return valor
-}
-
-let valorDescuento = calcularPrecioConDescuento(totalCompra)
-alert ('Total de la compra sin impuesto es: '+valorDescuento)
-
-
-function calcularPrecioConImpuestos (valor){
-    const impuestos = valor * (21/100)
-    return valor + impuestos
-}
-
-let valorFinalConImpuesto = calcularPrecioConImpuestos(valorDescuento)
-alert ('Total de compra a pagar es: '+valorFinalConImpuesto)
- 
-const a = [claseYerba, calcularPrecioConDescuento, calcularPrecioConImpuestos ]
-const b = [1, true, "Hi"]
-
-console.log(a)
-console.log(a[2])
-
-console.log(TipoMate)
-TipoMate.push("Aluminio")
-
+productos.forEach(e =>{
+    e.DesplegarProductos()
+})
