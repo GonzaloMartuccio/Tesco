@@ -1,0 +1,225 @@
+let totalCompra = 0
+let claseYerba = parseInt(
+    prompt(
+        'Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'
+        )
+
+) 
+
+const TipoMate = ["Madera", "Plastico", "Vidrio"]
+
+let continuarCompra = true
+let decision
+
+while (continuarCompra === true) {
+ if(claseYerba === 1){
+        totalCompra = totalCompra + 150
+ } else if (claseYerba === 2){
+        totalCompra = totalCompra + 120
+ } else if (claseYerba === 3){
+        totalCompra = totalCompra + 100
+ } else if (claseYerba === 4){
+        totalCompra = totalCompra + 95
+ } else {
+    claseYerba = parseInt(prompt('Ingresa un producto existente:'))
+    continue
+ } 
+ 
+    
+ decision = parseInt(prompt('Quieres seguir agregando productos? 1.Si - 2.No'))
+ if (decision===1){
+    claseYerba = parseInt(prompt('Ingresa aqui la yerba que deseas comprar: 1.Canarias - 2.ReiVerde - 3.Sara - 4.Playadito'))
+ } else if (decision===2){
+    continuarCompra = false
+
+ }
+
+}
+
+alert ('Compra total sin descuentos ni impuestos es: '+totalCompra)
+
+function calcularPrecioConDescuento (valor){
+let descuento = 0 
+if (valor<=300){
+    descuento = 10
+} else if (valor>300 && valor<=400){
+    descuento = 20
+} else if (valor>500 && valor<=600){
+    descuento = 25
+} else { 
+    descuento = 30
+}
+
+let valorDescuento = valor *(descuento/100)
+valor = valor - valorDescuento
+return valor
+}
+
+let valorDescuento = calcularPrecioConDescuento(totalCompra)
+alert ('Total de la compra sin impuesto es: '+valorDescuento)
+
+
+function calcularPrecioConImpuestos (valor){
+    const impuestos = valor * (21/100)
+    return valor + impuestos
+}
+
+let valorFinalConImpuesto = calcularPrecioConImpuestos(valorDescuento)
+alert ('Total de compra a pagar es: '+valorFinalConImpuesto)
+ 
+const a = [claseYerba, calcularPrecioConDescuento, calcularPrecioConImpuestos ]
+const b = [1, true, "Hi"]
+
+console.log(a)
+console.log(a[2])
+
+console.log(TipoMate)
+TipoMate.push("Aluminio")
+
+
+/////////////
+
+<nav class="navbar">
+    <h1 class="titulo">TESCO YERBAS</h1>
+    <a class="cart" href="carrito.html">
+        <img id="cartIcon" src="./multimedia/carrito.png" alt="foto del carrito">
+        <span id="cartCounter"></span>
+    </a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h4>Yerba Canarias</h4>
+        <div>
+            <img class="imgproducto" src="./multimedia/yerba-canarias.jpg" alt="foto del producto">
+        </div>
+        <div>
+            <p>Precio del producto</p> 
+        </div>
+        <div class="btn-container">
+            <button id="001" class="botonagregar">Agregar al carrito</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h4>Yerba Rei Verde</h4>
+        <div>
+            <img class="imgproducto" src="./multimedia/reiverde-yerba.jpg" alt="foto del producto">
+        </div>
+        <div>
+            <p>Precio del producto</p> 
+        </div>
+        <div class="btn-container">
+            <button id="002" class="botonagregar">Agregar al carrito</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h4>Yerba Playadito</h4>
+        <div>
+            <img class="imgproducto" src="./multimedia/playadito-yerba.jpg" alt="foto del producto">
+        </div>
+        <div>
+            <p>Precio del producto</p> 
+        </div>
+        <div class="btn-container">
+            <button id="003" class="botonagregar">Agregar al carrito</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h4>Yerba Sara</h4>
+        <div>
+            <img class="imgproducto" src="./multimedia/sara-roja-.png" alt="foto del producto">
+        </div>
+        <div>
+            <p>Precio del producto</p> 
+        </div>
+        <div class="btn-container">
+            <button id="004" class="botonagregar">Agregar al carrito</button>
+        </div>
+
+    </div>
+
+</div>
+
+/////////
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: antiquewhite;
+    
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.title{
+    text-align: center;
+    font-size: 40px;
+    color: dimgray;
+    margin-top: 100px;
+    font-weight: 100;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.container .card{
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba (0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.container .card:hover{
+    transform: translate(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+ img{
+    width: 260px;
+    height: 200px;
+}
+
+.container .card h4{
+    font-weight: 600;
+}
+
+.container .card p{
+    padding: 0 1rem;
+    font-size: 16px;
+    font-weight: 300;
+}
