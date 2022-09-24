@@ -1,15 +1,12 @@
-body{
-    width: 100%;
-    height: 100%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: antiquewhite;
-    
-}
 
-.navbar{
-    display: flex;
-    flex-direction: row;
-}
+
+
+
+
+
+
+
+/*//////////////////////NAV BAR ///////////////////*/
 
 .cart{
     display: flex;

@@ -2,7 +2,7 @@ const Productos = [] ;
 const carritos =  [] ;
 
 class Producto {
-    constructor(id,nombre,precio,img,descripcion = "Yerba sin palo"){
+    constructor(id,nombre,precio,img,descripcion = "Yerba sin palo", preciodto){
         this.id = id;
         this.nombre = nombre;  
         this.precio = precio; 
@@ -12,6 +12,7 @@ class Producto {
     }
 
 }
+
 
 function DesplegarProductos(e) { 
        const card = `
@@ -26,8 +27,8 @@ function DesplegarProductos(e) {
                <div>
                    <p>${e.preciodto} </p> 
                </div>
-               <div class="btn-container">
-                   <button id=${e.id}  class="botonagregar">Agregar al carrito</button>
+               <div class="btncontainer">
+                   <button id="boton1"> Agregar al carrito</button>
                </div>
                </div>
         `   
@@ -49,12 +50,23 @@ Productos.forEach(e =>{
    DesplegarProductos(e)
 })
 
-function loadCards(fil) {
-    fil.forEach(e => {
-        console.log (e);
-        e.DesplegarProductos();
 
-    });
-    loadAddButtons(fil);
-    saveMem(fil);
+const boton1 = document.getElementById('boton1')
+boton1.addEventListener('click', clickFunction)
+
+function clickFunction(){
+    console.log('Click en agregar carrito')
+    Swal.fire({
+        title:'Exitoso',
+        text: 'Producto Agregado al carrito',
+        icon: 'success',
+        showConfirmButton:false
+    })
 }
+
+
+
+
+/* const boton = document.getElementById('alert')
+
+boton.onclick = mostrarAlert */
