@@ -8,7 +8,7 @@ class Producto {
         this.precio = precio; 
         this.img = img; 
         this.descripcion = descripcion;
-        this.preciodto = precio * 0,9
+        
     }
 
 }
@@ -17,20 +17,21 @@ class Producto {
 function DesplegarProductos(e) { 
        const card = `
            <div class="card">
-               <h4>${e.nombre} </h4>
+               
                <div>
+                    <h4>${e.nombre} </h4>
                    <img src=${e.img} class="imgproducto" alt="foto del producto">
                </div>
-               <div>
+
+               <div class="price">
                    <p>${e.precio} </p> 
-               </div>
-               <div>
-                   <p>${e.preciodto} </p> 
-               </div>
+               </div> 
+                          
                <div class="btncontainer">
                    <button id="boton1"> Agregar al carrito</button>
                </div>
-               </div>
+
+            </div>
         `   
                    
           
