@@ -1,16 +1,8 @@
 
 
-
-
-
-
-
-
-/*//////////////////////NAV BAR ///////////////////*/
-
-.cart{
+.card{
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
 }
 
 #cartIcon{
@@ -48,6 +40,10 @@
     transition: all 0.25s;
 }
 
+.btncontainer{
+    text-decoration: none;
+    
+}
 
 
 img{

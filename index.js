@@ -51,9 +51,12 @@ Productos.forEach(e =>{
 })
 
 
-const boton1 = document.getElementById('boton1')
-boton1.addEventListener('click', clickFunction)
 
+const boton1 = document.getElementById('boton1')
+const imgproducto = document.querySelector ('.imgproducto')
+
+
+boton1.addEventListener('click', clickFunction)
 function clickFunction(){
     console.log('Click en agregar carrito')
     Swal.fire({
@@ -64,9 +67,10 @@ function clickFunction(){
     })
 }
 
+imgproducto.addEventListener('mousemove', moveFunction)
+function moveFunction(){
+    console.log('Moviendo mouse en imagen del producto')
+}
 
 
 
-/* const boton = document.getElementById('alert')
-
-boton.onclick = mostrarAlert */
